@@ -4,6 +4,7 @@
   "description": "does alot of nothing",
   "browserify": {
     "transform": [
+      "babelify"
     ]
   },
   "scripts": {
@@ -40,6 +41,7 @@
     "watchify": "^3.3.1"
   },
   "dependencies": {
+    "babelify": "^6.4.0",
     "browserify": "^11.0.1",
     "stylus": "^0.52.0",
     "uglify-js": "^2.4.24"
