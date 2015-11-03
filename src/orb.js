@@ -1,3 +1,6 @@
+/* global positionPanner */
+//  ^^^ HACK HACK HACK FIXME
+
 // taken from https://jsfiddle.net/tovic/Xcb8d/light/
 // should be refactored
 
@@ -15,11 +18,15 @@ function _drag_init(elem) {
 
 // Will be called when user dragging an element
 function _move_elem(e) {
+  var x, y;
   x_pos = document.all ? window.event.clientX : e.pageX;
   y_pos = document.all ? window.event.clientY : e.pageY;
   if (selected !== null) {
-    selected.style.left = (x_pos - x_elem) + 'px';
-    selected.style.top = (y_pos - y_elem) + 'px';
+    x = (x_pos - x_elem);
+    y = (y_pos - y_elem);
+    selected.style.left = x + 'px';
+    selected.style.top = y + 'px';
+    positionPanner(x, y, 295);
   }
 }
 

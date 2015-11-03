@@ -33,7 +33,25 @@ function positionPanner(x, y, z) {
 
 positionPanner(xPos, yPos, zPos);
 
+function center() {
+  positionPanner(xPos, yPos, zPos);
+}
+
+function left() {
+  positionPanner(xPos * .95, yPos, zPos);
+}
+
+function right() {
+  positionPanner(xPos * 1.05, yPos, zPos);
+}
+
 window.positionPanner = positionPanner;
+
+window.center = center;
+
+window.left = left;
+
+window.right = right;
 
 panner.connect(context.destination);
 
