@@ -1,4 +1,5 @@
 var http = require('http');
+var path = require('path');
 
 var express = require('express');
 var compression = require('compression');
@@ -8,10 +9,15 @@ var server = http.Server(app);
 
 var io = require('socket.io')(server);
 
-server.listen(process.env.PORT || 3000);
-
 app.use(compression());
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+server.listen(process.env.PORT || 3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+});
 
 io.on('connection', function (socket) {
   socket.emit('news', {hello: 'world'});
