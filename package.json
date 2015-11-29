@@ -15,8 +15,6 @@
     ]
   },
   "scripts": {
-    "precommit": "npm run lint",
-    "prepush": "npm run lint",
     "test": "EXIT_STATUS=0; npm -s run lint || EXIT_STATUS=$?; npm -s run tape|| EXIT_STATUS=$?; exit $EXIT_STATUS",
     "test:watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
     "tape": "browserify test/*.js | tap-closer | smokestack | tap-spec",
@@ -30,7 +28,7 @@
     "watch": "npm run clean && (npm run watch:js & npm run watch:stylus & npm run watch:public)",
     "clean": "rm -rf dist/ && mkdir -p dist/",
     "dev": "npm run clean && npm run watch & node server/",
-    "start": "npm run build && cat dist/bundle.js | gzip > dist/bundle.js.gz && node server/"
+    "start": "npm run build && node server/"
   },
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
@@ -39,7 +37,6 @@
     "chokidar": "^1.0.5",
     "ecstatic": "^0.8.0",
     "eslint": "^1.1.0",
-    "husky": "^0.9.2",
     "mkdirp": "^0.5.1",
     "smokestack": "^3.3.0",
     "tap-closer": "^1.0.0",
