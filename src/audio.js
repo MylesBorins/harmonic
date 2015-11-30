@@ -7,9 +7,7 @@ var overtone = Math.floor(Math.random() * 5) + 1;
 
 var osc = context.createOscillator();
 
-function updateFreq (newBase) {
-  console.log('update');
-  console.log(newBase);
+function updateFreq(newBase) {
   var freq = newBase * overtone;
   osc.frequency.value = freq;
   freqElem.innerHTML = 'Frequency: ' + freq + 'Hz';

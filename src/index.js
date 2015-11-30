@@ -6,10 +6,11 @@ var socket = io();
 
 var master = !!document.getElementById('master');
 
+function update (value) {
+  socket.emit('update', value);
+}
+
 if (master) {
-  function update (value) {
-    socket.emit('update', value);
-  }
   global.update = update;
 }
 
