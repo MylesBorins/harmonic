@@ -1,5 +1,3 @@
-// panner taken from https://developer.mozilla.org/en-US/docs/Web/API/PannerNode
-
 var context = new (window.AudioContext || window.webkitAudioContext)();
 
 var freqElem = document.getElementById('freq');
