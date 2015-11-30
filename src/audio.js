@@ -3,7 +3,7 @@ var context = new (window.AudioContext || window.webkitAudioContext)();
 var freqElem = document.getElementById('freq');
 
 var base = 55;
-var overtone = Math.floor(Math.random() * 15) + 1;
+var overtone = Math.floor(Math.random() * 5) + 1;
 
 var osc = context.createOscillator();
 
