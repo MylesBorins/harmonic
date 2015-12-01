@@ -2,6 +2,7 @@
   "name": "harmonic",
   "version": "1.0.0",
   "description": "does alot of nothing",
+  "repo": "https://github.com/TheAlphaNerd/harmonic",
   "browserify": {
     "transform": [
       [
@@ -32,11 +33,7 @@
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "chalk": "^1.1.0",
-    "chokidar": "^1.0.5",
-    "ecstatic": "^0.8.0",
     "eslint": "^1.1.0",
-    "mkdirp": "^0.5.1",
     "smokestack": "^3.3.0",
     "tap-closer": "^1.0.0",
     "tap-spec": "^4.0.2",
