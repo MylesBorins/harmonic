@@ -21,6 +21,6 @@ server.listen(process.env.PORT || 3000, function () {
 
 io.on('connection', function (socket) {
   socket.on('update', function (data) {
-    io.emit('note', data);
+    io.emit(data.type, data.value);
   });
 });
