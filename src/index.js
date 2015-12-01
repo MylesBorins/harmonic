@@ -3,14 +3,10 @@ var _ = require('lodash');
 var audio = require('./audio');
 var socket = require('./socket');
 
-var index = 0;
-
 var freqDiv = document.getElementById('freq');
 var startDiv = document.getElementById('start');
 
-var master = !!document.getElementById('master');
-
-if (master) {
+if (document.getElementById('master')) {
   require('./master');
 }
 
@@ -23,7 +19,7 @@ function setupUI() {
   startDiv.style.display = 'none';
 }
 
-function init () {
+function init() {
   wireSocketIO();
   setupUI();
   audio.init();

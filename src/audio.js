@@ -17,7 +17,7 @@ function sanitizeFreq(freq) {
   if (typeof freq === 'string') {
     freq = nameToFreq(freq);
   }
-  return freq
+  return freq;
 }
 
 function setFreq(freq) {
