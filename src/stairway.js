@@ -31,4 +31,4 @@ var stairway = [
   'A-2'
 ];
 
-module.exports = map(map(stairway, MIDIUtils.noteNameToNoteNumber), MIDIUtils.noteNumberToFrequency)
+module.exports = map(map(stairway, MIDIUtils.noteNameToNoteNumber), MIDIUtils.noteNumberToFrequency);
