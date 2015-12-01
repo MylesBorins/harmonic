@@ -4,25 +4,30 @@ var sanitizeFreq = require('./sanitize-freq');
 var freqElem = document.getElementById('freq');
 
 function setFreq(freq) {
+  console.log(freq)
   var osc = cache.get('osc');
   freq = sanitizeFreq(freq);
   osc.frequency.value = freq;
   freqElem.innerHTML = 'Frequency: ' + freq + 'Hz';
 }
 
-function setHarmonic(base, overtone) {
-  if (!overtone) {
-    overtone = cache.get('overtone');
-  }
-  else {
-    cache.set('overtone', overtone);
-  }
+function setHarmonic(base) {
+  var overtone = cache.get('overtone');
   base = sanitizeFreq(base);
   setFreq(base * overtone);
 }
 
-function setRandom() {
-  setFreq(Math.rand() * 220500);
+function setNoise(ceil) {
+  if (!ceil) {
+    ceil = 1000;
+  }
+  setFreq(Math.random() * ceil);
+}
+
+function setModulation(base) {
+  var mod = Math.floor((Math.random() - 0.5) * 2 * 3);
+  base = sanitizeFreq(base);
+  setFreq(base + mod);
 }
 
 function init() {
@@ -40,5 +45,6 @@ module.exports = {
   init: init,
   freq: setFreq,
   harmonic: setHarmonic,
-  random: setRandom
+  noise: setNoise,
+  modulation: setModulation
 };

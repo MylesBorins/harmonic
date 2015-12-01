@@ -13,6 +13,8 @@ if (window.location.pathname.split('/')[1] === 'gepetto') {
 
 function wireSocketIO() {
   socket.on('harmonic', audio.harmonic);
+  socket.on('modulation', audio.modulation);
+  socket.on('noise', audio.noise);
 }
 
 function setupUI() {

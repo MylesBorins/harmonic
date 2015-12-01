@@ -1,6 +1,6 @@
 var cache = {
   overtone: Math.floor(Math.random() * 5) + 1,
-  offsetCache: Math.floor(Math.random() - 0.5) + 10,
+  mod: Math.floor((Math.random() - 0.5) * 2 * 3),
   context: null,
   osc: null
 };
