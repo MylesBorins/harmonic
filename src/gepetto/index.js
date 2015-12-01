@@ -1,4 +1,4 @@
-var socket = require('./socket');
+var socket = require('../socket');
 var stairway = require('./stairway');
 
 var index = 0;
