@@ -1,4 +1,5 @@
-var _ = require('lodash');
+// var _ = require('lodash')
+var once = require('lodash/function/once');
 
 var audio = require('./audio');
 var socket = require('./socket');
@@ -6,8 +7,8 @@ var socket = require('./socket');
 var freqDiv = document.getElementById('freq');
 var startDiv = document.getElementById('start');
 
-if (document.getElementById('master')) {
-  require('./master');
+if (window.location.pathname === '/gepetto.html') {
+  require('./gepetto');
 }
 
 function wireSocketIO() {
@@ -25,4 +26,4 @@ function init() {
   audio.init();
 }
 
-startDiv.onclick = _.once(init);
+startDiv.onclick = once(init);
