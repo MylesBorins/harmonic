@@ -1,5 +1,5 @@
 var cache = require('./cache');
-var sanitizeFreq = require('./sanitizeFreq');
+var sanitizeFreq = require('./sanitize-freq');
 
 var freqElem = document.getElementById('freq');
 
