@@ -7,7 +7,7 @@ var socket = require('./socket');
 var freqDiv = document.getElementById('freq');
 var startDiv = document.getElementById('start');
 
-if (window.location.pathname === '/gepetto.html') {
+if (window.location.pathname.split('/')[1] === 'gepetto') {
   require('./gepetto');
 }
 
