@@ -9,6 +9,9 @@ var socket = io();
 
 var master = !!document.getElementById('master');
 
+var freqDiv = document.getElementById('freq');
+var startDiv = document.getElementById('start');
+
 function update (value) {
   socket.emit('update', value);
 }
@@ -34,4 +37,10 @@ if (master) {
   global.play = play;
 }
 
-socket.on('note', freq.update);
+socket.on('note', freq.harmonic);
+
+startDiv.onclick = function () {
+  freqDiv.style.display = 'block';
+  startDiv.style.display = 'none';
+  freq.init();
+}

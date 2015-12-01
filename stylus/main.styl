@@ -11,14 +11,36 @@ body {
   background-color: #d3d3d3;
 }
 
-.orb {
-  mix-blend-mode: exclusion;
+#freq {
+  display: none;
 }
 
-#draggable-element {
-  margin-left: -100px
-  top: 50%;
-  left: 50%;
-  cursor:move;
-  position:absolute; /* important (all position that's not `static`) */
+#start {
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+.btn {
+  user-select: none;
+  text-align: center;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: white;
+  padding: 0.5em 1em 0.5em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
