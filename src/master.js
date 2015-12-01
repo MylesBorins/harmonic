@@ -1,5 +1,8 @@
 var freq = require('./audio');
 var socket = require('./socket');
+var stairway = require('./stairway');
+
+var index = 0;
 
 function setHarmonicBase (value) {
   socket.emit('update', {

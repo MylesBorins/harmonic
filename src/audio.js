@@ -1,51 +1,61 @@
+
 var MIDIUtils = require('midiutils');
 
+// Some globals cause why
 var osc, context;
-var base = 55;
-var overtone = Math.floor(Math.random() * 5) + 1;
 var freqElem = document.getElementById('freq');
+
+var overtoneCache;
 
 function nameToFreq(name) {
   return MIDIUtils.noteNumberToFrequency(MIDIUtils.noteNameToNoteNumber(name));
 }
 
-function setFreq(freq) {
+
+function sanitizeFreq(freq) {
   // Allow us to pass note names;
   if (typeof freq === 'string') {
-    newBase = nameToFreq(freq);
+    freq = nameToFreq(freq);
   }
+  return freq
+}
+
+function setFreq(freq) {
+  freq = sanitizeFreq(freq);
   osc.frequency.value = freq;
   freqElem.innerHTML = 'Frequency: ' + freq + 'Hz';
 }
 
-function setHarmonic(newBase) {
-  // Allow us to pass note names;
-  if (typeof newBase === 'string') {
-    newBase = nameToFreq(newBase);
+function setHarmonic(base, overtone) {
+  if (!overtone) {
+    if (!overtoneCache) {
+      overtoneCache = Math.floor(Math.random() * 5) + 1;
+    }
+    overtone = overtoneCache;
   }
-  var freq = newBase * overtone;
-  setFreq(freq)
+  else {
+    overtoneCache = overtone;
+  }
+  base = sanitizeFreq(base);
+  setFreq(base * overtone);
 }
 
-function setNoise() {
-  // Allow us to pass note names;
-  if (typeof newBase === 'string') {
-    newBase = nameToFreq(newBase);
-  }
-  var freq = Math.rand() * 220500;
-  setFreq(freq)
+function setRandom() {
+  setFreq(Math.rand() * 220500);
 }
 
 function init() {
+  // lets be explicit about globals
   context = new (window.AudioContext || window.webkitAudioContext)();
   osc = context.createOscillator();
-  setHarmonic(base);
+  setHarmonic(55);
   osc.connect(context.destination);
   osc.start();
 }
 
 module.exports = {
   init: init,
-  set: setFreq,
-  harmonic: setHarmonic
+  base: setFreq,
+  harmonic: setHarmonic,
+  random: setRandom
 };

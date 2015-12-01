@@ -1,7 +1,6 @@
 var _ = require('lodash');
 
-var freq = require('./audio');
-var stairway = require('./stairway');
+var audio = require('./audio');
 var socket = require('./socket');
 
 var index = 0;
@@ -15,11 +14,19 @@ if (master) {
   require('./master');
 }
 
-function init () {
-  socket.on('harmonic', freq.harmonic);
+function wireSocketIO() {
+  socket.on('harmonic', audio.harmonic);
+}
+
+function setupUI() {
   freqDiv.style.display = 'block';
   startDiv.style.display = 'none';
-  freq.init();
+}
+
+function init () {
+  wireSocketIO();
+  setupUI();
+  audio.init();
 }
 
 startDiv.onclick = _.once(init);
