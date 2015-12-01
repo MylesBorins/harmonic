@@ -25,5 +25,5 @@ function play() {
   }
 }
 
-global.setHarmonicBase = setHarmonicBase;
+global.note = global.freq = setHarmonicBase;
 global.play = play;
