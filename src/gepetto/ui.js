@@ -5,9 +5,12 @@ var freqElem = document.getElementById('freq');
 var secretElem = document.getElementById('secret');
 var playElem = document.getElementById('play');
 var muteElem = document.getElementById('mute');
+var repeatElem = document.getElementById('repeat');
+var sequenceElem = document.getElementById('sequence');
 
 var playing = false;
 var muted = false;
+var repeating = false;
 
 freqElem.style.display = 'none';
 startElem.style.display = 'none';
@@ -27,13 +30,19 @@ function toggleMute() {
   return muted;
 }
 
-playElem.onclick = togglePlay;
-
-muteElem.onclick = toggleMute;
+function toggleRepeat() {
+  repeating = !repeating;
+  var opacity = repeating ? 1 : 0.3;
+  repeatElem.style.opacity = opacity;
+  return repeating;
+}
 
 module.exports = {
   togglePlay: togglePlay,
   toggleMute: toggleMute,
+  toggleRepeat: toggleRepeat,
   playElem: playElem,
-  muteElem: muteElem
+  muteElem: muteElem,
+  repeatElem: repeatElem,
+  sequenceElem: sequenceElem
 }

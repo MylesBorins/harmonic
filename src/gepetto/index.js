@@ -28,7 +28,7 @@ function volume(value) {
 }
 
 function next() {
-  if (index >= global.sequence.length - 1) {
+  if (index >= global.sequence.length) {
     index = 0;
   }
   setHarmonicBase(global.sequence[index]);
@@ -40,7 +40,7 @@ function play(sequence) {
     global.sequence = sequence;
   }
   next();
-  if ((index < global.sequence.length - 1 || global.repeat) && playing) {
+  if ((index <= global.sequence.length || global.repeat) && playing) {
     window.setTimeout(play, global.interval);
   }
   else {
@@ -62,8 +62,29 @@ function clickMute() {
   volume(!muted);
 }
 
+function clickRepeat() {
+  global.repeat = ui.toggleRepeat();
+}
+
+function newSequence(e) {
+  var notes = e.srcElement.value.split(' ');
+  notes = notes.reduce(function (prev, cur) {
+    var num = Number(cur);
+    if (num) {
+      prev.push(num);
+    }
+    else if (cur) {
+      prev.push(cur);
+    }
+    return prev;
+  }, []);
+  sequence = notes;
+}
+
 ui.muteElem.onclick = clickMute;
 ui.playElem.onclick = clickPlay;
+ui.repeatElem.onclick = clickRepeat;
+ui.sequenceElem.oninput = newSequence;
 
 global.note = global.freq = setHarmonicBase;
 global.play = play;

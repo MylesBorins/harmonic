@@ -24,6 +24,10 @@ adminButton() {
   min-height: 90vh;
 }
 
+.flexbox-column {
+  flex-direction: clumn;
+}
+
 body {
   background-color: #d3d3d3;
 }
@@ -49,6 +53,23 @@ body {
 
 #mute {
   adminButton();
+}
+
+#repeat {
+  adminButton();
+  opacity: 0.3;
+}
+
+#sequence {
+  padding: 1em;
+  margin-top: 4em;
+  text-align: center;
+  width: 100%;
+}
+
+#buttons {
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
