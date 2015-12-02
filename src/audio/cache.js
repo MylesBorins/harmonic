@@ -1,6 +1,9 @@
+const harmonics = 5;
+const range = 3; 
+
 var cache = {
-  overtone: Math.floor(Math.random() * 5) + 1,
-  mod: Math.floor((Math.random() - 0.5) * 2 * 3),
+  overtone: Math.floor(Math.random() * 5) + harmonics,
+  mod: Math.floor((Math.random() - 0.5) * 2 * range),
   context: null,
   osc: null
 };
