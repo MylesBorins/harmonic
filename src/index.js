@@ -15,6 +15,7 @@ function wireSocketIO() {
   socket.on('harmonic', audio.harmonic);
   socket.on('modulation', audio.modulation);
   socket.on('noise', audio.noise);
+  socket.on('volume', audio.volume);
 }
 
 function setupUI() {

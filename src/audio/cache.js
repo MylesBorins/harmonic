@@ -5,7 +5,8 @@ var cache = {
   overtone: Math.floor(Math.random() * 5) + harmonics,
   mod: Math.floor((Math.random() - 0.5) * 2 * range),
   context: null,
-  osc: null
+  osc: null,
+  gain: null
 };
 
 function get(name) {

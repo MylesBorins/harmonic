@@ -21,6 +21,10 @@ function modulation(value) {
   update('modulation', value);
 }
 
+function volume(value) {
+  update('volume', value);
+}
+
 function next() {
   if (index > global.sequence.length - 1) {
     index = 0;
@@ -46,3 +50,4 @@ global.repeat = false;
 global.interval = 500;
 global.noise = noise;
 global.modulation = modulation;
+global.volume = volume;
