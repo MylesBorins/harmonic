@@ -9,33 +9,22 @@ var muteElem = document.getElementById('mute');
 var playing = false;
 var muted = false;
 
-var toggleCallback = function () {};
-var muteCallback = function () {};
-
 freqElem.style.display = 'none';
 startElem.style.display = 'none';
 secretElem.style.display = 'block';
-
-function setToggleCallback(cb) {
-  toggleCallback = cb;
-}
-
-function setMuteCallback(cb) {
-  pauseCallback = cb;
-}
 
 function togglePlay() {
   playing = !playing;
   var className = playing ? 'icon-pause' : 'icon-play';
   playElem.className = className;
-  toggleCallback(playing);
+  return playing;
 }
 
 function toggleMute() {
   muted = !muted;
   var className = muted ? 'icon-volume-mute2' : 'icon-volume-mute';
   muteElem.className = className;
-  muteCallback(muted);
+  return muted;
 }
 
 playElem.onclick = togglePlay;
@@ -45,6 +34,6 @@ muteElem.onclick = toggleMute;
 module.exports = {
   togglePlay: togglePlay,
   toggleMute: toggleMute,
-  setToggleCallback: setToggleCallback,
-  setMuteCallback: setMuteCallback
+  playElem: playElem,
+  muteElem: muteElem
 }

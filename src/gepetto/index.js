@@ -2,6 +2,7 @@ var ui = require('./ui');
 var socket = require('../socket');
 var stairway = require('./stairway');
 var index = 0;
+var playing = false;
 
 function update(type, value) {
   socket.emit('update', {
@@ -27,7 +28,7 @@ function volume(value) {
 }
 
 function next() {
-  if (index > global.sequence.length - 1) {
+  if (index >= global.sequence.length - 1) {
     index = 0;
   }
   setHarmonicBase(global.sequence[index]);
@@ -39,23 +40,30 @@ function play(sequence) {
     global.sequence = sequence;
   }
   next();
-  if (index < global.sequence.length || global.repeat) {
+  if ((index < global.sequence.length - 1 || global.repeat) && playing) {
     window.setTimeout(play, global.interval);
   }
   else {
-    ui.togglePlay();
+    if (playing) {
+      playing = ui.togglePlay();
+    }
   }
 }
 
-ui.setToggleCallback(function (playing) {
-  if (playing) {
+function clickPlay() {
+  playing = ui.togglePlay()
+  if(playing) {
     play();
   }
-  else {
-    repeat = false;
-    index = global.sequence.length - 1;
-  }
-});
+}
+
+function clickMute() {
+  var muted = ui.toggleMute();
+  volume(!muted);
+}
+
+ui.muteElem.onclick = clickMute;
+ui.playElem.onclick = clickPlay;
 
 global.note = global.freq = setHarmonicBase;
 global.play = play;
