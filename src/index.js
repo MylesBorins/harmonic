@@ -7,6 +7,14 @@ var socket = require('./socket');
 var freqDiv = document.getElementById('freq');
 var startDiv = document.getElementById('start');
 
+require('konami-komando')({
+  once: true,
+  useCapture: true,
+  callback: function () {
+    require('./gepetto');
+  }
+})
+
 if (window.location.pathname.split('/')[1] === 'gepetto') {
   require('./gepetto');
 }
