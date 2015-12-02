@@ -24,6 +24,7 @@
     },
     "extends": "eslint:recommended",
     "ecmaFeatures": {
-        "templateStrings": true
+        "templateStrings": true,
+        "blockBindings": true
     }
 }
