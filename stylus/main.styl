@@ -1,4 +1,21 @@
 @require 'Globals'
+@require 'icons.css'
+
+noselect() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+adminButton() {
+  noselect();
+  cursor: pointer;
+  font-size: 40px;
+  padding: 0.5em;
+}
 
 .flexbox {
   display: flex;
@@ -11,12 +28,27 @@ body {
   background-color: #d3d3d3;
 }
 
+#secret {
+  noselect();
+  display: none;
+}
+
 #freq {
+  noselect();
   display: none;
 }
 
 #start {
+  noselect();
   font-size: 50px
+}
+
+#play {
+  adminButton();
+}
+
+#mute {
+  adminButton();
 }
 
 .btn:hover {
@@ -37,11 +69,3 @@ body {
   cursor: pointer;
 }
 
-.noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}

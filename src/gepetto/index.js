@@ -1,3 +1,4 @@
+var ui = require('./ui');
 var socket = require('../socket');
 var stairway = require('./stairway');
 var index = 0;
@@ -38,10 +39,23 @@ function play(sequence) {
     global.sequence = sequence;
   }
   next();
-  if (index !== global.sequence.length - 1 || global.repeat) {
+  if (index < global.sequence.length || global.repeat) {
     window.setTimeout(play, global.interval);
   }
+  else {
+    ui.togglePlay();
+  }
 }
+
+ui.setToggleCallback(function (playing) {
+  if (playing) {
+    play();
+  }
+  else {
+    repeat = false;
+    index = global.sequence.length - 1;
+  }
+});
 
 global.note = global.freq = setHarmonicBase;
 global.play = play;
