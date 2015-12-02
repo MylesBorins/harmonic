@@ -46,6 +46,7 @@ function play(sequence) {
 global.note = global.freq = setHarmonicBase;
 global.play = play;
 global.sequence = stairway;
+global.stairway = stairway;
 global.repeat = false;
 global.interval = 500;
 global.noise = noise;
