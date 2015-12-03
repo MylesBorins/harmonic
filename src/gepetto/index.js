@@ -70,24 +70,31 @@ function clickRepeat() {
 }
 
 function newSequence(e) {
-  var notes = e.srcElement.value.split(' ');
-  notes = notes.reduce(function (prev, cur) {
-    var num = Number(cur);
-    if (num) {
-      prev.push(num);
+  if(e.keyCode === 13) {
+    var notes = e.srcElement.value.split(' ');
+    notes = notes.reduce(function (prev, cur) {
+      var num = Number(cur);
+      if (num) {
+        prev.push(num);
+      }
+      else if (cur) {
+        prev.push(cur);
+      }
+      return prev;
+    }, []);
+    global.sequence = notes;
+    if (!playing) {
+      setHarmonicBase(sequence[index]);
     }
-    else if (cur) {
-      prev.push(cur);
-    }
-    return prev;
-  }, []);
-  global.sequence = notes;
+  }
 }
 
 function updateInterval(e) {
-  var newInterval = Number(e.srcElement.value);
-  if (newInterval) {
-    global.interval = newInterval;
+  if (e.keyCode === 13) {
+    var newInterval = Number(e.srcElement.value);
+    if (newInterval) {
+      global.interval = newInterval;
+    }
   }
 }
 
@@ -101,8 +108,8 @@ ui.noiseElem.onclick = function ( ) { noise() };
 ui.muteElem.onclick = clickMute;
 ui.playElem.onclick = clickPlay;
 ui.repeatElem.onclick = clickRepeat;
-ui.sequenceElem.oninput = newSequence;
-ui.intervalElem.oninput = updateInterval;
+ui.sequenceElem.onkeypress = newSequence;
+ui.intervalElem.onkeypress = updateInterval;
 ui.modulateElem.onkeypress = updateModulation;
 
 global.note = global.freq = setHarmonicBase;
