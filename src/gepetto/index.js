@@ -31,7 +31,6 @@ function next() {
   if (index >= global.sequence.length) {
     index = 0;
   }
-  console.log(index);
   setHarmonicBase(global.sequence[index]);
   index++;
 }
@@ -92,11 +91,19 @@ function updateInterval(e) {
   }
 }
 
+function updateModulation(e) {
+  if (e.keyCode === 13) {
+    modulation(Number(e.srcElement.value));
+  }
+}
+
+ui.noiseElem.onclick = function ( ) { noise() };
 ui.muteElem.onclick = clickMute;
 ui.playElem.onclick = clickPlay;
 ui.repeatElem.onclick = clickRepeat;
 ui.sequenceElem.oninput = newSequence;
 ui.intervalElem.oninput = updateInterval;
+ui.modulateElem.onkeypress = updateModulation;
 
 global.note = global.freq = setHarmonicBase;
 global.play = play;

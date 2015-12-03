@@ -5,9 +5,7 @@ var freqElem = document.getElementById('freq');
 var secretElem = document.getElementById('secret');
 var playElem = document.getElementById('play');
 var muteElem = document.getElementById('mute');
-var repeatElem = document.getElementById('repeat');
-var sequenceElem = document.getElementById('sequence');
-var intervalElem = document.getElementById('interval');
+var repeatElem = document.getElementById('repeat'); 
 
 var playing = false;
 var muted = false;
@@ -45,6 +43,8 @@ module.exports = {
   playElem: playElem,
   muteElem: muteElem,
   repeatElem: repeatElem,
-  sequenceElem: sequenceElem,
-  intervalElem: intervalElem
+  sequenceElem: document.getElementById('sequence'),
+  intervalElem: document.getElementById('interval'),
+  noiseElem: document.getElementById('noise'),
+  modulateElem: document.getElementById('modulate')
 }
