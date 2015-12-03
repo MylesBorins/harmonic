@@ -7,6 +7,7 @@ var playElem = document.getElementById('play');
 var muteElem = document.getElementById('mute');
 var repeatElem = document.getElementById('repeat');
 var sequenceElem = document.getElementById('sequence');
+var intervalElem = document.getElementById('interval');
 
 var playing = false;
 var muted = false;
@@ -44,5 +45,6 @@ module.exports = {
   playElem: playElem,
   muteElem: muteElem,
   repeatElem: repeatElem,
-  sequenceElem: sequenceElem
+  sequenceElem: sequenceElem,
+  intervalElem: intervalElem
 }
