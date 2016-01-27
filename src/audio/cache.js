@@ -2,7 +2,7 @@ const harmonics = 7;
 const range = 3; 
 
 var cache = {
-  overtone: Math.floor(Math.random() * harmonics) + 1,
+  overtone: Math.floor(Math.random() * harmonics) + 2,
   mod: Math.floor((Math.random() - 0.5) * 2 * range),
   context: null,
   osc: null,
