@@ -5,7 +5,7 @@ var freqElem = document.getElementById('freq');
 var secretElem = document.getElementById('secret');
 var playElem = document.getElementById('play');
 var muteElem = document.getElementById('mute');
-var repeatElem = document.getElementById('repeat'); 
+var repeatElem = document.getElementById('repeat');
 
 var playing = false;
 var muted = false;
@@ -46,5 +46,6 @@ module.exports = {
   sequenceElem: document.getElementById('sequence'),
   intervalElem: document.getElementById('interval'),
   noiseElem: document.getElementById('noise'),
-  modulateElem: document.getElementById('modulate')
+  modulateElem: document.getElementById('modulate'),
+  keyboardElem: document.getElementById('keyboard')
 }

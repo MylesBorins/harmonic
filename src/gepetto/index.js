@@ -104,6 +104,10 @@ function updateModulation(e) {
   }
 }
 
+function playNote(e) {
+  console.log(e);
+}
+
 ui.noiseElem.onclick = function ( ) { noise() };
 ui.muteElem.onclick = clickMute;
 ui.playElem.onclick = clickPlay;
@@ -111,6 +115,7 @@ ui.repeatElem.onclick = clickRepeat;
 ui.sequenceElem.onkeypress = newSequence;
 ui.intervalElem.onkeypress = updateInterval;
 ui.modulateElem.onkeypress = updateModulation;
+ui.keyboardElem.onkeypress = playNote;
 
 global.note = global.freq = setHarmonicBase;
 global.play = play;
