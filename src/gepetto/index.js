@@ -1,6 +1,9 @@
 var ui = require('./ui');
 var socket = require('../socket');
 var stairway = require('./stairway');
+var lookup = require('./lookup');
+var MIDIUtils = require('midiutils');
+
 var index = 0;
 var playing = false;
 
@@ -105,7 +108,11 @@ function updateModulation(e) {
 }
 
 function playNote(e) {
-  console.log(e);
+  var note = lookup[e.keyCode];
+  if (note) {
+    note = MIDIUtils.noteNumberToFrequency(note - 12);
+    setHarmonicBase(note);
+  }
 }
 
 ui.noiseElem.onclick = function ( ) { noise() };
