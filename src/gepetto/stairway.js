@@ -1,4 +1,3 @@
-var map = require('lodash/collection/map');
 var MIDIUtils = require('midiutils');
 
 var stairway = [
@@ -31,4 +30,6 @@ var stairway = [
   'A-2'
 ];
 
-module.exports = map(map(stairway, MIDIUtils.noteNameToNoteNumber), MIDIUtils.noteNumberToFrequency);
+module.exports = stairway
+                    .map(MIDIUtils.noteNameToNoteNumber)
+                    .map(MIDIUtils.noteNumberToFrequency);

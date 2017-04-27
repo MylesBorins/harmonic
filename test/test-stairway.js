@@ -3,7 +3,7 @@
 var test = require('tape');
 var _ = require('lodash');
 
-var stairway = require('../src/stairway');
+var stairway = require('../src/gepetto/stairway');
 
 test('stairway:', function (t) {
   t.plan(28);

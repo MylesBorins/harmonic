@@ -1,5 +1,0 @@
----
-applications:
-- name: thealphanerd-harmonics
-  command: npm start
-  path: .

@@ -1,5 +1,3 @@
-var socket = require('../socket');
-
 var startElem = document.getElementById('start');
 var freqElem = document.getElementById('freq');
 var secretElem = document.getElementById('secret');
@@ -48,4 +46,4 @@ module.exports = {
   noiseElem: document.getElementById('noise'),
   modulateElem: document.getElementById('modulate'),
   keyboardElem: document.getElementById('keyboard')
-}
+};

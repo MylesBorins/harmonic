@@ -1,5 +1,5 @@
 // var _ = require('lodash')
-var once = require('lodash/function/once');
+var once = require('lodash/fp/once');
 
 var audio = require('./audio');
 var socket = require('./socket');
@@ -13,7 +13,7 @@ require('konami-komando')({
   callback: function () {
     require('./gepetto');
   }
-})
+});
 
 if (window.location.pathname.split('/')[1] === 'gepetto') {
   require('./gepetto');

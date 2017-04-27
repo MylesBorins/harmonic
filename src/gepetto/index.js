@@ -30,7 +30,7 @@ function volume(value) {
   update('volume', value);
 }
 
-function next() {
+function step() {
   if (index >= global.sequence.length) {
     index = 0;
   }
@@ -42,7 +42,7 @@ function play(sequence) {
   if (sequence) {
     global.sequence = sequence;
   }
-  next();
+  step();
   if ((index <= global.sequence.length - 1 || global.repeat) && playing) {
     window.setTimeout(play, global.interval);
   }
@@ -50,14 +50,14 @@ function play(sequence) {
     if (playing) {
       playing = ui.togglePlay();
     }
-    if (index = global.sequence.length - 1) {
+    if (index === global.sequence.length - 1) {
       index = 0;
     }
   }
 }
 
 function clickPlay() {
-  playing = ui.togglePlay()
+  playing = ui.togglePlay();
   if(playing) {
     play();
   }
@@ -87,7 +87,7 @@ function newSequence(e) {
     }, []);
     global.sequence = notes;
     if (!playing) {
-      setHarmonicBase(sequence[index]);
+      setHarmonicBase(global.sequence[index]);
     }
   }
 }
@@ -115,7 +115,7 @@ function playNote(e) {
   }
 }
 
-ui.noiseElem.onclick = function ( ) { noise() };
+ui.noiseElem.onclick = function ( ) { noise(); };
 ui.muteElem.onclick = clickMute;
 ui.playElem.onclick = clickPlay;
 ui.repeatElem.onclick = clickRepeat;
