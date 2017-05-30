@@ -1,7 +1,7 @@
-#Harmonics
-###Made with sound and <3
+# Harmonic
+### Made with sound and <3
 
-##Dev
+## Dev
 
 ```bash
 $ npm run dev
@@ -13,7 +13,7 @@ $ npm run dev
   * Server is running on port 3000
 * Start Basic Socket Server
 
-##Prod
+## Prod
 
 ```
 $ npm start
@@ -28,7 +28,7 @@ $ npm start
 * Start Basic Socket Server
 
 
-##Testing
+## Testing
 
 ```
 $ npm test
@@ -39,11 +39,11 @@ This project has a series of unit(ish) tests. Currently API calls are not stubbe
 
 The tests are all written in tape. The blog post [Testing JavaScript Modules with Tape][use-tape] does a great job of explaining why tape is awesome!
 
-####Notes 
+#### Notes 
 
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
 [use-tape]: http://ponyfoo.com/articles/testing-javascript-modules-with-tape "Testing JavaScript Modules with Tape"
 
-##License
+## License
 
 MIT ~ check LICENSE
