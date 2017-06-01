@@ -51,7 +51,16 @@ docker build -t harmonic .
 
 **Run the container:**
 ```
-docker run -d --name harmonic -p 3000:3000 harmonic
+docker run -d --name harmonic -p 3000:80 harmonic
+```
+
+### GCP and kubernetes
+
+```
+$ gcloud container clusters create harmonic
+$ gcloud container builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/harmonic:1.0 ./
+$ kubectl apply -f service.yaml
+$ kubectl apply -f deployment.yaml
 ```
 
 #### Notes 
