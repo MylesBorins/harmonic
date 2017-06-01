@@ -38,6 +38,7 @@
     "socket.io": "^2.0.1",
     "socket.io-client": "^2.0.1",
     "stylus": "^0.54.5",
-    "uglify-es": "^3.0.13"
+    "uglify-es": "^3.0.13",
+    "webmidi": "^2.0.0-rc.5"
   }
 }

@@ -4,6 +4,8 @@ var stairway = require('./stairway');
 var lookup = require('./lookup');
 var MIDIUtils = require('midiutils');
 
+require('./midi');
+
 var index = 0;
 var playing = false;
 
