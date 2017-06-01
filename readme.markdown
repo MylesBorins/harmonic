@@ -39,6 +39,21 @@ This project has a series of unit(ish) tests. Currently API calls are not stubbe
 
 The tests are all written in tape. The blog post [Testing JavaScript Modules with Tape][use-tape] does a great job of explaining why tape is awesome!
 
+## Docker
+
+Clone this repo, and create a local.json.
+
+**Build a container:**
+
+```bash
+docker build -t harmonic .
+```
+
+**Run the container:**
+```
+docker run -d --name harmonic -p 3000:3000 harmonic
+```
+
 #### Notes 
 
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
