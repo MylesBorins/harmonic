@@ -21,24 +21,24 @@
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "smokestack": "^3.3.0",
-    "tap-closer": "^1.0.0",
-    "tap-spec": "^4.0.2",
-    "tape": "^4.1.0",
-    "watchify": "^3.3.1"
-  },
-  "dependencies": {
     "browserify": "^14.3.0",
-    "compression": "^1.6.0",
-    "express": "^4.13.3",
+    "eslint": "^3.19.0",
     "konami-komando": "^1.0.1",
     "lodash": "^4.17.4",
     "midiutils": "0.0.4",
-    "socket.io": "^2.0.1",
+    "smokestack": "^3.3.0",
     "socket.io-client": "^2.0.1",
     "stylus": "^0.54.5",
+    "tap-closer": "^1.0.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.1.0",
     "uglify-es": "^3.0.13",
+    "watchify": "^3.3.1",
     "webmidi": "^2.0.0-rc.5"
+  },
+  "dependencies": {
+    "compression": "^1.6.0",
+    "express": "^4.13.3",
+    "socket.io": "^2.0.1"
   }
 }

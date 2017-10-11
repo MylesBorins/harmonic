@@ -9,14 +9,14 @@ var server = http.Server(app);
 
 var io = require('socket.io')(server);
 
-var indexHTML = path.join(__dirname, '..', 'public', 'index.html');
+var indexHTML = path.join(__dirname, 'public', 'index.html');
 
 app.use(compression());
 app.get('/gepetto', function (req, res) {
   res.sendFile(indexHTML);
 });
-app.use(express.static(path.join(__dirname, '..', 'dist')));
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 server.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
