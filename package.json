@@ -16,7 +16,8 @@
     "watch": "npm run clean && (npm run watch:js & npm run watch:stylus)",
     "clean": "rm -rf dist/ && mkdir -p dist/",
     "dev": "npm run clean && npm run watch & node server/",
-    "start": "node server/"
+    "start": "node server/",
+    "deploy": "npm run build && gcloud app deploy"
   },
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",

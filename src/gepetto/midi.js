@@ -1,4 +1,4 @@
-// const webmidi = require('webmidi');
+const webmidi = require('webmidi');
 const {noteNumberToFrequency} = require('midiutils');
 var socket = require('../socket');
 
