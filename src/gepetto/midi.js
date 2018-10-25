@@ -1,4 +1,4 @@
-const webmidi = require('webmidi');
+// const webmidi = require('webmidi');
 const {noteNumberToFrequency} = require('midiutils');
 var socket = require('../socket');
 
@@ -9,7 +9,11 @@ function handleNote(e) {
   });
 }
 
-webmidi.enable(() => {
+webmidi.enable((e) => {
+  if (e) {
+    console.error('no web midi');
+    return;
+  }
   var input = webmidi.getInputByName('Da Bus');
   if (input)
     input.addListener('noteon', 'all', handleNote);

@@ -1,5 +1,6 @@
 const sanitizeFreq = require('./sanitize-freq');
-const {mod, overtone} = require('./defaults');
+
+const overtone = Math.floor(Math.random() * 7) + 2;
 
 const freqElem = document.getElementById('freq');
 
@@ -21,6 +22,7 @@ function noise(ceil = 1000) {
 }
 
 function modulation(base) {
+  const mod = Math.floor((Math.random() - 0.5) * 2 * 3);
   base = sanitizeFreq(base);
   freq(base + mod);
 }
