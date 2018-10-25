@@ -1,16 +1,16 @@
 // var _ = require('lodash')
-var once = require('lodash/fp/once');
+const once = require('lodash/fp/once');
 
-var audio = require('./audio');
-var socket = require('./socket');
+const audio = require('./audio');
+const socket = require('./socket');
 
-var freqDiv = document.getElementById('freq');
-var startDiv = document.getElementById('start');
+const freqDiv = document.getElementById('freq');
+const startDiv = document.getElementById('start');
 
 require('konami-komando')({
   once: true,
   useCapture: true,
-  callback: function () {
+  callback: () => {
     require('./gepetto');
   }
 });

@@ -1,48 +1,44 @@
-var cache = require('./cache');
-var sanitizeFreq = require('./sanitize-freq');
+const sanitizeFreq = require('./sanitize-freq');
+const {mod, overtone} = require('./defaults');
 
-var freqElem = document.getElementById('freq');
+const freqElem = document.getElementById('freq');
 
-function setFreq(freq) {
-  var osc = cache.get('osc');
+let context, osc, gain;
+
+function freq(freq) {
   freq = sanitizeFreq(freq);
   osc.frequency.value = freq;
   freqElem.innerHTML = 'Frequency: ' + freq + 'Hz';
 }
 
-function setHarmonic(base) {
-  var overtone = cache.get('overtone');
+function harmonic(base) {
   base = sanitizeFreq(base);
-  setFreq(base * overtone);
+  freq(base * overtone);
 }
 
-function setNoise(ceil) {
+function noise(ceil) {
   if (!ceil) {
     ceil = 1000;
   }
-  setFreq(Math.random() * ceil);
+  freq(Math.random() * ceil);
 }
 
-function setModulation(base) {
-  var mod = Math.floor((Math.random() - 0.5) * 2 * 3);
+function modulation(base) {
   base = sanitizeFreq(base);
-  setFreq(base + mod);
+  freq(base + mod);
 }
 
 function volume(value) {
-  var gain = cache.get('gain');
   gain.gain.value = value;
 }
 
 function init() {
   // lets be explicit about globals
-  var context = new (window.AudioContext || window.webkitAudioContext)();
-  var osc = context.createOscillator();
-  var gain = context.createGain();
-  cache.set('context', context);
-  cache.set('osc', osc);
-  cache.set('gain', gain);
-  setHarmonic(55);
+  context = new (window.AudioContext || window.webkitAudioContext)();
+  osc = context.createOscillator();
+  gain = context.createGain();
+
+  harmonic(55);
   volume(1);
   osc.connect(gain);
   gain.connect(context.destination);
@@ -50,10 +46,10 @@ function init() {
 }
 
 module.exports = {
-  init: init,
-  freq: setFreq,
-  harmonic: setHarmonic,
-  noise: setNoise,
-  modulation: setModulation,
-  volume: volume
+  init,
+  freq,
+  harmonic,
+  noise,
+  modulation,
+  volume
 };
