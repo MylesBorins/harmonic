@@ -5,9 +5,6 @@ env:
   browser: true
   es6: true
 
-parseOptions:
-  ecmaVersion: 2017
-
 rules:
   indent: [2, 2]
   quotes: [2, "single"]
