@@ -1,15 +1,15 @@
-var webmidi = require('webmidi');
-var toFreq = require('midiutils').noteNumberToFrequency;
+const webmidi = require('webmidi');
+const {noteNumberToFrequency} = require('midiutils');
 var socket = require('../socket');
 
 function handleNote(e) {
   socket.emit('update', {
     type: 'harmonic',
-    value: toFreq(e.note.number)
+    value: noteNumberToFrequency(e.note.number)
   });
 }
 
-webmidi.enable(function (err) {
+webmidi.enable(() => {
   var input = webmidi.getInputByName('Da Bus');
   if (input)
     input.addListener('noteon', 'all', handleNote);

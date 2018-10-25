@@ -8,7 +8,7 @@ let context, osc, gain;
 function freq(freq) {
   freq = sanitizeFreq(freq);
   osc.frequency.value = freq;
-  freqElem.innerHTML = 'Frequency: ' + freq + 'Hz';
+  freqElem.innerHTML = `Frequency: ${freq} Hz`;
 }
 
 function harmonic(base) {
@@ -16,10 +16,7 @@ function harmonic(base) {
   freq(base * overtone);
 }
 
-function noise(ceil) {
-  if (!ceil) {
-    ceil = 1000;
-  }
+function noise(ceil = 1000) {
   freq(Math.random() * ceil);
 }
 

@@ -1,6 +1,6 @@
-var MIDIUtils = require('midiutils');
+const MIDIUtils = require('midiutils');
 
-var stairway = [
+const stairway = [
   'A-2',
   'C-3',
   'E-3',
@@ -31,5 +31,5 @@ var stairway = [
 ];
 
 module.exports = stairway
-                    .map(MIDIUtils.noteNameToNoteNumber)
-                    .map(MIDIUtils.noteNumberToFrequency);
+  .map(MIDIUtils.noteNameToNoteNumber)
+  .map(MIDIUtils.noteNumberToFrequency);
