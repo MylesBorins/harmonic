@@ -1,31 +1,38 @@
-var http = require('http');
-var path = require('path');
+const http = require('http');
+const path = require('path');
 
-var express = require('express');
-var compression = require('compression');
+const express = require('express');
+const compression = require('compression');
 
-var app = express();
-var server = http.Server(app);
+const app = express();
+const server = http.Server(app);
 
-var io = require('socket.io')(server);
+const io = require('socket.io')(server);
 
-var indexHTML = path.join(__dirname, 'public', 'index.html');
+const indexHTML = path.resolve(__dirname, 'public', 'index.html');
 
 app.use(compression());
-app.get('/gepetto', function (req, res) {
+
+app.get('/gepetto', (req, res) => {
   res.sendFile(indexHTML);
 });
+
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-server.listen(process.env.PORT || 3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+server.listen(process.env.PORT || 3000, (e) => {
+  if (e) {
+    console.error(e);
+    process.exit(1);
+  }
+
+  const {address, port} = server.address();
+  
+  console.log(`Harmonic listening at http://${address}:${port}`);
 });
 
-io.on('connection', function (socket) {
-  socket.on('update', function (data) {
+io.on('connection', (socket) => {
+  socket.on('update', (data) => {
     io.emit(data.type, data.value);
   });
 });
