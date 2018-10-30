@@ -39,6 +39,16 @@ This project has a series of unit(ish) tests. Currently API calls are not stubbe
 
 The tests are all written in tape. The blog post [Testing JavaScript Modules with Tape][use-tape] does a great job of explaining why tape is awesome!
 
+## App Engine
+
+To deploy this app with app engine run
+
+```bash
+gcloud app deploy
+```
+
+An app.yaml is included with all the configuration you need to get going
+
 ## Docker
 
 Clone this repo, and create a local.json.
@@ -58,7 +68,7 @@ docker run -d --name harmonic -p 3000:80 harmonic
 
 ```
 $ gcloud container clusters create harmonic
-$ gcloud container builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/harmonic:1.1 ./
+$ gcloud container builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/harmonic:2.0 ./
 $ kubectl apply -f service.yaml
 $ kubectl apply -f deployment.yaml
 ```
